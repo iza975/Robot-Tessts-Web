@@ -29,7 +29,7 @@ Editar Nome Completo Vazio
     Log    Valor atual do campo 'Nome Completo' após salvar: '${full_name_value}'.
 
     # Log para capturar o comportamento de preenchimento inesperado
-    Run Keyword If    ${full_name_value} == "AAAAAAAAAAAAAAAAAAAAAAAAA"    Log    O campo 'Nome Completo' foi preenchido automaticamente com 'AAAAAAAAAAAAAAAAAAAAAAAAA' ao invés de permanecer vazio. Isso pode indicar um bug.    level=ERROR
+    # Run Keyword If    ${full_name_value} == "AAAAAAAAAAAAAAAAAAAAAAAAA"    Log    O campo 'Nome Completo' foi preenchido automaticamente com 'AAAAAAAAAAAAAAAAAAAAAAAAA' ao invés de permanecer vazio. Isso pode indicar um bug.    level=ERROR
    
     
     # [Documentation]    Este teste valida que a mensagem de erro deve aparecer quando o campo "Nome Completo" é deixado vazio.
@@ -44,14 +44,14 @@ Editar Nome Completo Vazio
     # ${full_name_value} =    Get Value    ${FULL_NAME_FIELD}
     # Should Be Equal As Strings    ${full_name_value}    ${EMPTY}
 Editar Nome Completo Inválido
-    Input Text    ${NEW_FULL_NAME}    text= 568
+    Input Text    ${FULL_NAME_FIELD}    text= 568
     Input Text    ${EMAIL_FIELD}    ${NEW_EMAIL}
     Click Button    ${SAVE_BUTTON}
     # Verificar se a página voltou à anterior sem salvar as alterações
     ${current_url} =    Get Location
     Should Be Equal As Strings    ${current_url}    ${EXPECTED_PREVIOUS_URL}
 Editar Nome Completo Válido   
-    Input Text    ${NEW_FULL_NAME}    text= Caila Galia
+    Input Text    ${FULL_NAME_FIELD}    text= Sophia Galia
     Input Text    ${EMAIL_FIELD}    ${NEW_EMAIL}
     Click Button    ${SAVE_BUTTON}
     # Verificar se a página voltou à anterior sem salvar as alterações

@@ -1,8 +1,9 @@
 
-*** Settings ***   
-Resource    ../resources/variables/variables.robot
-Resource    ../resources/variables/login-variables.robot 
+*** Settings *** 
+
 Resource    ../resources/keywords/acesso-tela-cadastrokeywords.robot
+Resource    ../resources/variables/variables.robot
+
 
 Library      SeleniumLibrary
 Library      String

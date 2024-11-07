@@ -58,3 +58,37 @@ ${COMPANY_BUTTON}    //*[@id="Empresa"]/span
 ${mensagem_erro_cnpj}     O campo CNPJ é obrigatório    /html/body/div/div/div[2]/div/form/div/div[4]/p
 ${pj} =    Get Text    xpath=//div[contains(@class, 'MuiAlert')]
 ${bairro_empresa}       id=id=district 
+${urlBase}            https://automacao.qacoders.dev.br
+${EMAIL_LOGIN}        id=email  # campo email da tela de login
+${EMAIL_VALIDO}       sysadmin@qacoders.com   #email valido da tela de login
+${SENHA_LOGIN}        id=password   #campo senha da tela de login
+${SENHA_VALIDA}       1234@Test     # senha valida da tela de login
+${BOTAO_IMPUT}        id=login   # botao entra da tela de login
+${BUTOO_LOGOUT}       class=css-1nvbq2d  # botao sair da tela  cadastro               
+${CADASTROS_BUTTON}     //*[@id="Cadastros"]/span              
+${USUARIOS_BUTTON}      //*[@id="Usuários"]/span   
+${EDITAR_CADASTRO_BUTTON}              id=edit    
+${SAVE_BUTTON}                         id=save               
+ 
+*** Variables ***
+
+# Campos do Formulário
+${FULL_NAME_FIELD}             id=fullName                      # Campo de Nome Completo
+${SURNAME_FIELD}               locator_do_campo_sobrenome      # Insira o locator correto para o campo sobrenome
+${EMAIL_FIELD}                 id=mail                          # Campo de E-mail
+${SAVE_BUTTON}                 id=saveButton                    # Botão Salvar Alterações
+
+# Mensagens de Erro
+${ERROR_MESSAGE_NAME_MISSING}  "O campo nome completo é obrigatório."  # Mensagem quando o campo nome está vazio
+${ERROR_MESSAGE_NAME_TOO_LONG}  "O nome não pode ter mais de 100 caracteres."
+${ERROR_MESSAGE_NAME_INVALID}    "O nome não pode conter números."
+${ERROR_MESSAGE_SURNAME_MISSING}  O sobrenome é obrigatório.
+
+# Dados Válidos e Limitações
+${VALID_EMAIL}                 valid_email@exemplo.com          # E-mail válido para os testes
+${MAX_NAME_LENGTH}             100                               # Limite máximo de caracteres para o nome
+${EXCEEDS_NAME_LENGTH}         ${MAX_NAME_LENGTH}+1              # Nome com mais de 100 caracteres
+${NAME_WITH_NUMBERS}           "Nome123"                         # Nome contendo números
+${EMPTY_SURNAME}               ""                                 # Sobrenome vazio
+${empty_value} =    ''
+                  

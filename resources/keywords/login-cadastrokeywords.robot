@@ -22,7 +22,7 @@ Realizar Login
 
 # Acessa a tela de cadastro de usuários após o login
 Acessar Tela de Cadastro de Usuários
-    Wait Until Element Is Visible    ${CADASTROS_BUTTON}    timeout=120
+    Wait Until Element Is Visible    ${CADASTROS_BUTTON}    timeout=60
     Click Element    ${CADASTROS_BUTTON}
     Click Element    ${USUARIOS_BUTTON}
     Wait Until Element Is Visible    id=edit    timeout=30

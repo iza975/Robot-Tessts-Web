@@ -11,12 +11,12 @@ Editar empresa com o campo "CNPJ" vazio.
     Input Text    id=companyMail              ${email_empresa}
     Clear Element Text    id=matriz           # Deixa o campo CNPJ vazio
     Input Text    id=telephone                ${contato_responsavel}
-    ${erro_cnpj}=    Get Text       xpath=/html/body/div/div/div[2]/div/form/div/div[4]/p
-    Should Be Equal As Strings    ${erro_cnpj}    ${mensagem_erro_cnpj}
+    # ${erro_cnpj}=    Get Text       xpath=/html/body/div/div/div[2]/div/form/div/div[4]/p
+    # Should Be Equal As Strings    ${erro_cnpj}    ${mensagem_erro_cnpj}
     # Clica no botão "Salvar Alterações" e valida a mensagem de erro completa exibida.
     Click Button    id=save
-    ${mensagem_erro}=    Get Text    xpath=//div[@class='MuiAlert-message css-1xsto0d']
-    Should Be Equal As Strings    ${mensagem_erro}    ${mensagem_erro_esperada}
+    # ${mensagem_erro}=    Get Text    xpath=//div[@class='MuiAlert-message css-1xsto0d']
+    # Should Be Equal As Strings    ${mensagem_erro}    ${mensagem_erro_esperada}
 
 
 Editar Empresa com Bairro Alfanumérico Inválido

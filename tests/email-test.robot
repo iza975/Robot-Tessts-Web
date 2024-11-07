@@ -4,11 +4,12 @@
 *** Settings ***
 
 Library    SeleniumLibrary     # ou outra biblioteca necessária
-Library    String
-Resource    ../resources/keywords/login-cadastrokeywords.robot     # Importa as keywords relacionadas ao login
+Library    String   
+
 Resource    ../resources/variables/variables.robot                  # Importa variáveis globais
 Resource    ../resources/keywords/email-keywords.robot
-Resource    ../resources/variables/login-variables.robot
+Resource    ../resources/keywords/login-cadastrokeywords.robot
+
           # Importa variáveis globais
 
 *** Test Cases ***

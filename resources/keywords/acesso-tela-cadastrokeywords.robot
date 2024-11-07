@@ -1,15 +1,15 @@
 
 *** Settings ***
-Library   SeleniumLibrary
-Library   String
+Library     SeleniumLibrary
+Library     String
 
 
 *** Keywords ***
 # Abre o navegador e navega até a URL base
 Abrir o navegador e acessar página inicial
-    Open Browser    browser=chrome
+    Open Browser    ${urlBase}    browser=chrome
     Maximize Browser Window   
-    Go To    url=${urlBase}
+    
 
 # Realiza login com e-mail e senha válidos
 Realizar Login

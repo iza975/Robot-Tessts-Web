@@ -1,8 +1,8 @@
 
 *** Settings ***   
 Resource    ../resources/variables/variables.robot
-Resource    ../resources/variables/login-variables.robot 
 Resource    ../resources/keywords/login-cadastrokeywords.robot
+
 Library      SeleniumLibrary
 Library      String
 
