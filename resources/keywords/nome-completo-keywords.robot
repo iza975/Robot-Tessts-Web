@@ -34,12 +34,12 @@ Editar Nome Completo Inválido
     Input Text    ${EMAIL_FIELD}    ${NEW_EMAIL}
     Click Button    ${SAVE_BUTTON}
     # Verificar se a página voltou à anterior sem salvar as alterações
-    # ${current_url} =    Get Location
-    # Should Be Equal As Strings    ${current_url}    ${EXPECTED_PREVIOUS_URL}
+    ${current_url} =    Get Location
+    Should Be Equal As Strings    ${current_url}    ${EXPECTED_PREVIOUS_URL}
 Editar Nome Completo Válido   
     Input Text    ${FULL_NAME_FIELD}    text= Sophia Galia
     Input Text    ${EMAIL_FIELD}    ${NEW_EMAIL}
     Click Button    ${SAVE_BUTTON}
-    # Verificar se a página voltou à anterior sem salvar as alterações
-    # ${current_url} =    Get Location
-    # Should Be Equal As Strings    ${current_url}    ${EXPECTED_PREVIOUS_URL}
+    # Verificar se a página voltou à anterior sem salvar as alterações    
+    ${current_url} =    Get Location
+    Should Be Equal As Strings    ${current_url}    ${EXPECTED_PREVIOUS_URL}
