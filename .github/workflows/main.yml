@@ -33,7 +33,7 @@ jobs:
         if: always()
         with:
           name: resultado-testes
-          path: ./tests/tests
+          path: results/
  
    deploy:
     name: configurar site
