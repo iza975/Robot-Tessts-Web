@@ -13,7 +13,7 @@ Abrir o navegador e acessar página inicial
 
 # Realiza login com e-mail e senha válidos
 Realizar Login
-    Wait Until Element Is Visible    ${EMAIL_LOGIN}
+    # Wait Until Element Is Visible    ${EMAIL_LOGIN}
     Input Text    ${EMAIL_LOGIN}    ${EMAIL_VALIDO}
     Wait Until Element Is Visible    ${SENHA_LOGIN}
     Input Password    ${SENHA_LOGIN}    ${SENHA_VALIDA}
@@ -22,7 +22,7 @@ Realizar Login
 
 # Acessa a tela de cadastro de usuários após o login
 Acessar Tela de Cadastro de Empresa
-    Wait Until Element Is Visible    ${CADASTROS_BUTTON}    timeout=120
+    Wait Until Element Is Visible    ${CADASTROS_BUTTON}    timeout=60
     Click Element    ${CADASTROS_BUTTON}
     Click Element    ${COMPANY_BUTTON}
     Wait Until Element Is Visible    id=edit    timeout=30
