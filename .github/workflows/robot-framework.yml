@@ -1,73 +1,67 @@
-
-name: Teste API com Robot
+name: Robot Framework Tests WEB
  
 on: push
  
 jobs:
-   test:
+  test_web:
+    name: Web Tests - Robot
     runs-on: ubuntu-latest
- 
-    steps:
-      - name: clone do projeto
-        uses: actions/checkout@v4
-       
-      - name: configuração do python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
- 
-      - name: Instalação de dependência
-        # run: echo Instalação das depedências do Projeto
-        run: |
-          pip install robotframework-seleniumlibrary
-          pip install robotframework
-          pip install robotframework-requests
-         
- 
-      - name: rodando os testes
-        # run: echo Executando os testes de API do Robot
-        run: |
-          robot --name "API Tests" --outputdir results/ tests/
-       
 
-      - name: Salvando os resultados dos testes   
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: resultado-testes
-          path: results 
- 
-   deploy:
-    name: configurar site
-    runs-on: ubuntu-latest
-    if: always()
-    needs:
-    - test
+    # Permissões e Ambiente para disponibilizar o Reporte de Testes no GitHub Pages
     permissions:
       contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
-      url: https://iza975.github.io/Robot-Tests-Web/report.html
-     
-           
-       
+      url: https://iza975.github.io/Robot-Test-Web/report.html
     steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
+      - name: Clonar Repositório do Projeto para a Máquina Virtual do GitHub Actions
+        # run: echo clonando para o repositorio na maquina virtual
+        uses: actions/checkout@v4
  
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
+
+      - name: Instalação do Python
+        # run: echo Instalação da versão 3.12 do Python
+        uses: actions/setup-python@v5
         with:
-          name: resultado-testes
+          python-version: '3.12'
+ 
+
+      - name: Instalação das Depedências do Projeto
+        # run: echo Instalação das depedências do Projeto
+        run: |
+          pip install setuptools
+          pip install robotframework
+          pip install robotframework-seleniumlibrary
+ 
+
+      - name: Executar Testes Web do Robot Framework
+        # run: echo Executando os testes de API do Robot
+        run: |
+          robot --outputdir results/ tests/
+
+
+      - name: Salvar Relatórios dos Testes Executados
+        # run: echo Salvando o Report dos Testes
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robot-framework-report
+          path: results/
+
+
+      - name: Configurar GitHub Pages para Hospedagem dos Relatórios
+        uses: actions/configure-pages@v5
+ 
+
+      - name: Fazer Upload dos Relatórios Gerados
+        uses: actions/upload-pages-artifact@v3
+        if: always()
+        with:
           path: results/
  
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: results/
- 
-      - name: Deploy to Github Pages
+          
+      - name: Publicar Relatórios de Testes no GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
